@@ -3,7 +3,6 @@
 namespace TheLimonazo\SpanishLang;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Foundation\Application;
 
 class SpanishLangServiceProvider extends ServiceProvider
 {
@@ -25,7 +24,7 @@ class SpanishLangServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Determine the base path according to the Laravel version
-        $basePath = version_compare(Application::VERSION, '9.0', '<')
+        $basePath = version_compare(app()->version(), '9.0', '<')
             ? resource_path('lang/es')
             : base_path('lang/es');
 
